@@ -102,6 +102,7 @@ output
   - armor encrypted private key (saved to file)
 */
 func runAddCmd(ctx client.Context, cmd *cobra.Command, args []string, inBuf *bufio.Reader) error {
+	fmt.Println("starting runAddCmd...")
 	var err error
 
 	name := args[0]
@@ -272,6 +273,7 @@ func runAddCmd(ctx client.Context, cmd *cobra.Command, args []string, inBuf *buf
 		}
 	}
 
+	fmt.Println("calling NewAccount...")
 	info, err := kb.NewAccount(name, mnemonic, bip39Passphrase, hdPath, algo)
 	if err != nil {
 		return err
@@ -284,6 +286,7 @@ func runAddCmd(ctx client.Context, cmd *cobra.Command, args []string, inBuf *buf
 		mnemonic = ""
 	}
 
+	fmt.Println("ending runAddCmd...")
 	return printCreate(cmd, info, showMnemonic, mnemonic, outputFormat)
 }
 

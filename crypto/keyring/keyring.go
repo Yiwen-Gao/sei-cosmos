@@ -527,6 +527,7 @@ func (ks keystore) NewAccount(name string, mnemonic string, bip39Passphrase stri
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("hihi", derivedPriv)
 
 	privKey := algo.Generate()(derivedPriv)
 
